@@ -14,8 +14,29 @@ class MessageList extends StatefulWidget {
 }
 
 class _MessageListState extends State<MessageList> {
+
   AppState get app => context.read<AppState>();
   MessagesState get messages => context.read<MessagesState>();
+
+  /* @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) async { 
+      await _encryptWithMessageKey();
+    });
+  }
+
+  Future<void> _encryptWithMessageKey() async {
+    final result = await BiometricX.encrypt(
+      biometricKey: app.biometricKey,
+      messageKey: 'username',
+      message: 'This is a secret message',
+    );
+
+    if (result.isSuccess) {
+      print(result.data);
+    }
+  } */
 
   Future<void> _requestRead(int index) async {
     final message = messages.item(index);

@@ -32,8 +32,10 @@ class _WriteMessageState extends State<WriteMessage> {
       subtitle: 'Enter biometric credentials to save this message',
     );
 
-    if (result.isSuccess) {
-      await messages.add(result.data!);
+    if (result.isSuccess && result.hasData) {
+      final messageKey = result.data!;
+      
+      await messages.add(messageKey);
       app.showList();
       return;
     }

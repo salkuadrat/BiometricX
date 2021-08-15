@@ -89,7 +89,7 @@ BiometricResult result = await BiometricX.encrypt({
 ```
 
 ```dart
-String? message = await BiometricX.decrypt({
+BiometricResult message = await BiometricX.decrypt({
   biometricKey: 'salkuadrat',
   messageKey: messageKey,
   title: 'Biometric Decryption',

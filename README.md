@@ -59,7 +59,7 @@ String? message = await BiometricX.decrypt({
 ```
 
 Showing custom message in your biometric prompt dialog.\
-Method [encrypt] and [decrypt] have parameters that we can use to change biometric prompt dialog.
+Method `encrypt` and `decrypt` have parameters that we can use to change biometric prompt dialog.
 
 ```dart
 String? messageKey = await BiometricX.encrypt({

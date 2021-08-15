@@ -3,7 +3,7 @@
 The easy way to use biometric authentication in your Flutter app.\
 Supports Fingerprint, Face Recognition and Iris.
 
-
+[Demo APK](https://github.com/salkuadrat/BiometricX/raw/master/BiometricX.apk).
 
 ## Starting
 
@@ -88,4 +88,4 @@ String? message = await BiometricX.decrypt({
 ## Example
 
 [Example project](example).\
-[Example APK](https://github.com/salkuadrat/BiometricX/raw/master/BiometricX.apk).
+[Demo APK](https://github.com/salkuadrat/BiometricX/raw/master/BiometricX.apk).

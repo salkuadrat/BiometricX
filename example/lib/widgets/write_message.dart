@@ -1,6 +1,6 @@
 import 'package:biometricx/biometricx.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:provider/provider.dart';
 
 import '../states/states.dart';
@@ -19,35 +19,31 @@ class _WriteMessageState extends State<WriteMessage> {
   final controller = TextEditingController();
 
   Future<void> _saveMessage() async {
-    print(controller.text);
+    final message = controller.text;
+
+    if (message.isEmpty) {
+      return;
+    }
 
     final result = await BiometricX.encrypt(
       biometricKey: app.biometricKey,
-      message: controller.text,
+      message: message,
       title: 'Biometric Permission',
       subtitle: 'Enter biometric credentials to save this message',
     );
 
     if (result.isSuccess) {
       await messages.add(result.data!);
-
-      Fluttertoast.showToast(
-        msg: 'Your message is saved',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-      );
-
       app.showList();
       return;
     }
 
     if (result.isFailed) {
-      Fluttertoast.showToast(
-        msg: result.errorMsg,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+      showToast(
+        result.errorMsg,
+        context: context,
+        animation: StyledToastAnimation.fade,
+        position: StyledToastPosition.center,
       );
     }
   }
@@ -74,7 +70,10 @@ class _WriteMessageState extends State<WriteMessage> {
                   horizontal: 18,
                 ),
                 hintText: 'Write your secret message',
-                hintStyle: TextStyle(fontSize: 20),
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.3),
+                  fontSize: 20,
+                ),
               ),
             ),
           ),

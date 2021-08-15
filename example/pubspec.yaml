@@ -11,6 +11,7 @@ dependencies:
   intl: ^0.17.0
   get_storage: ^2.0.3
   provider: ^5.0.0
+  flutter_styled_toast: ^2.0.0
   fluttertoast: ^8.0.8
   biometricx:
     path: ../

@@ -1,6 +1,6 @@
 import 'package:biometricx/biometricx.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:provider/provider.dart';
 
 import '../states/states.dart';
@@ -34,11 +34,11 @@ class _MessageListState extends State<MessageList> {
     }
 
     if (result.isFailed) {
-      Fluttertoast.showToast(
-        msg: result.errorMsg,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+      showToast(
+        result.errorMsg,
+        context: context,
+        animation: StyledToastAnimation.fade,
+        position: StyledToastPosition.center,
       );
     }
   }
@@ -58,22 +58,22 @@ class _MessageListState extends State<MessageList> {
       bool isDeleted = await messages.delete(index);
 
       if (isDeleted) {
-        Fluttertoast.showToast(
-          msg: 'Message is deleted.',
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
+        showToast(
+          'Message is deleted.',
+          context: context,
+          animation: StyledToastAnimation.fade,
+          position: StyledToastPosition.center,
         );
       }
       return;
     }
 
     if (result.isFailed) {
-      Fluttertoast.showToast(
-        msg: result.errorMsg,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+      showToast(
+        result.errorMsg,
+        context: context,
+        animation: StyledToastAnimation.fade,
+        position: StyledToastPosition.center,
       );
     }
   }

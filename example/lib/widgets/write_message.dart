@@ -34,7 +34,7 @@ class _WriteMessageState extends State<WriteMessage> {
 
     if (result.isSuccess && result.hasData) {
       final messageKey = result.data!;
-      
+
       await messages.add(messageKey);
       app.showList();
       return;
@@ -61,6 +61,8 @@ class _WriteMessageState extends State<WriteMessage> {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20),
               textCapitalization: TextCapitalization.sentences,
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,

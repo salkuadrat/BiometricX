@@ -43,13 +43,13 @@ bool isBiometricEnabled = await BiometricX.isEnabled();
 Encrypt data using biometric authentication.
 
 ```dart
-// Keep this messageKey to decrypt your message.
 BiometricResult result = await BiometricX.encrypt({
   biometricKey: 'salkuadrat',
   message: 'This is a very secret message',
 });
 
 if (result.isSuccess && result.hasData) {
+  // Keep this messageKey to decrypt your message.
   String messageKey = result.data!;
 } else {
   showToast(result.errorMsg, context: context);

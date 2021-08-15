@@ -21,15 +21,15 @@ class _WriteMessageState extends State<WriteMessage> {
   Future<void> _saveMessage() async {
     print(controller.text);
 
-    final messageKey = await Biometricx.encrypt(
+    final result = await BiometricX.encrypt(
       biometricKey: app.biometricKey,
       message: controller.text,
       title: 'Biometric Permission',
       subtitle: 'Enter biometric credentials to save this message',
     );
 
-    if (messageKey is String) {
-      await messages.add(messageKey);
+    if (result.isSuccess) {
+      await messages.add(result.data!);
 
       Fluttertoast.showToast(
         msg: 'Your message is saved',
@@ -39,6 +39,16 @@ class _WriteMessageState extends State<WriteMessage> {
       );
 
       app.showList();
+      return;
+    }
+
+    if (result.isFailed) {
+      Fluttertoast.showToast(
+        msg: result.errorMsg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+      );
     }
   }
 

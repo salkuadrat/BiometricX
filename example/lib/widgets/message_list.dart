@@ -21,15 +21,25 @@ class _MessageListState extends State<MessageList> {
     final message = messages.item(index);
     final messageKey = message['message_key'] as String;
 
-    final decryptedMessage = await Biometricx.decrypt(
+    final result = await BiometricX.decrypt(
       biometricKey: app.biometricKey,
       messageKey: messageKey,
       title: 'Biometric Permission',
       subtitle: 'Enter biometric credentials to read this message',
     );
 
-    if (decryptedMessage is String) {
-      app.read(decryptedMessage);
+    if (result.isSuccess) {
+      app.read(result.data!);
+      return;
+    }
+
+    if (result.isFailed) {
+      Fluttertoast.showToast(
+        msg: result.errorMsg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+      );
     }
   }
 
@@ -37,14 +47,14 @@ class _MessageListState extends State<MessageList> {
     final message = messages.item(index);
     final messageKey = message['message_key'] as String;
 
-    final decryptedMessage = await Biometricx.decrypt(
+    final result = await BiometricX.decrypt(
       biometricKey: app.biometricKey,
       messageKey: messageKey,
       title: 'Biometric Permission',
       subtitle: 'Enter biometric credentials to delete this message',
     );
 
-    if (decryptedMessage is String) {
+    if (result.isSuccess) {
       bool isDeleted = await messages.delete(index);
 
       if (isDeleted) {
@@ -55,6 +65,16 @@ class _MessageListState extends State<MessageList> {
           timeInSecForIosWeb: 1,
         );
       }
+      return;
+    }
+
+    if (result.isFailed) {
+      Fluttertoast.showToast(
+        msg: result.errorMsg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+      );
     }
   }
 

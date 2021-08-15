@@ -88,4 +88,4 @@ String? message = await BiometricX.decrypt({
 ## Example
 
 [Example project](example).\
-[Example APK]().
+[Example APK](https://github.com/salkuadrat/BiometricX/raw/master/BiometricX.apk).

@@ -49,8 +49,10 @@ class _MessageListState extends State<MessageList> {
       subtitle: 'Enter biometric credentials to read this message',
     );
 
-    if (result.isSuccess) {
-      app.read(result.data!);
+    if (result.isSuccess && result.hasData) {
+      final message = result.data!;
+
+      app.read(message);
       return;
     }
 
@@ -75,7 +77,7 @@ class _MessageListState extends State<MessageList> {
       subtitle: 'Enter biometric credentials to delete this message',
     );
 
-    if (result.isSuccess) {
+    if (result.isSuccess && result.hasData) {
       bool isDeleted = await messages.delete(index);
 
       if (isDeleted) {

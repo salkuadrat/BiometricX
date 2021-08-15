@@ -86,6 +86,7 @@ BiometricResult result = await BiometricX.decrypt({
 });
 
 if (result.isSuccess && result.hasData) {
+  // This will contains your original message.
   String message = result.data!;
 } else {
   showToast(result.errorMsg, context: context);

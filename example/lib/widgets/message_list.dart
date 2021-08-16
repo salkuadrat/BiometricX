@@ -50,9 +50,9 @@ class _MessageListState extends State<MessageList> {
     );
 
     if (result.isSuccess && result.hasData) {
-      final message = result.data!;
+      final originalMessage = result.data!;
 
-      app.read(message);
+      app.read(originalMessage);
       return;
     }
 

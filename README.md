@@ -39,7 +39,7 @@ class MainActivity extends FlutterFragmentActivity {
 
 ## Usage
 
- to check biometric type of your device.
+To check biometric type of your device.
 
 ```dart
 BiometricType type = await BiometricX.type();
@@ -117,7 +117,7 @@ if (result.isSuccess && result.hasData) {
 }
 ```
 
-To show custom message in your biometric prompt dialog, method `encrypt` and `decrypt` have parameters you can use to change the biometric prompt dialog.
+To show custom message in your biometric prompt, method `encrypt` and `decrypt` have parameters you can use to change the biometric prompt dialog.
 
 ```dart
 BiometricResult result = await BiometricX.encrypt({

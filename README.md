@@ -15,6 +15,28 @@ Published soon at...
 $ flutter pub add biometricx
 ```
 
+## Configuration
+
+Change your android `MainActivity` to extends `FlutterFragmentActivity`.
+
+```kotlin
+import io.flutter.embedding.android.FlutterFragmentActivity
+
+// kotlin
+class MainActivity: FlutterFragmentActivity() {
+  ...
+}
+```
+
+```java
+import io.flutter.embedding.android.FlutterFragmentActivity;
+
+// java
+class MainActivity extends FlutterFragmentActivity {
+  ...
+}
+```
+
 ## Usage
 
 Check biometric type of the device.

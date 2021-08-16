@@ -39,13 +39,13 @@ class MainActivity extends FlutterFragmentActivity {
 
 ## Usage
 
-Check biometric type of the device.
+ to check biometric type of your device.
 
 ```dart
 BiometricType type = await BiometricX.type();
 ```
 
-List of biometric types.
+Here is the list of biometric types.
 
 ```dart
 BiometricType.FACE
@@ -58,13 +58,13 @@ BiometricType.UNAVAILABLE
 BiometricType.UNSUPPORTED
 ```
 
-Check if the device can use biometric authentication.
+To check if your device can use biometric authentication.
 
 ```dart
 bool isBiometricEnabled = await BiometricX.isEnabled();
 ```
 
-Encrypt data using biometric authentication.
+To encrypt data using biometric authentication.
 
 ```dart
 BiometricResult result = await BiometricX.encrypt({
@@ -99,7 +99,7 @@ if (result.isSuccess && result.hasData) {
 }
 ```
 
-Decrypt data using biometric authentication.
+To decrypt data using biometric authentication.
 
 ```dart
 // Use the same biometricKey that is used to encrypt your message.
@@ -117,8 +117,7 @@ if (result.isSuccess && result.hasData) {
 }
 ```
 
-Showing custom message in your biometric prompt dialog.\
-Method `encrypt` and `decrypt` have parameters that we can use to change biometric prompt dialog.
+To show custom message in your biometric prompt dialog, method `encrypt` and `decrypt` have parameters you can use to change the biometric prompt dialog.
 
 ```dart
 BiometricResult result = await BiometricX.encrypt({

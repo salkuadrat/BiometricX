@@ -5,6 +5,8 @@ Supports Fingerprint, FaceID and Iris.
 
 [Demo APK](https://github.com/salkuadrat/BiometricX/raw/master/BiometricX.apk).
 
+![](biometric.png)
+
 ## Starting
 
 Published soon at...

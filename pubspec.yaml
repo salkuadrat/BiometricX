@@ -1,0 +1,24 @@
+name: biometricx
+description: The easy way to use biometric authentication in your Flutter app.
+version: 0.0.1
+homepage: https://github.com/salkuadrat/biometricx
+repository: https://github.com/salkuadrat/biometricx
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.salkuadrat.biometricx
+        pluginClass: BiometricxPlugin

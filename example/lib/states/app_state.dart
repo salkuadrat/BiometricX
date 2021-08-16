@@ -7,7 +7,6 @@ enum AppScreenState {
 }
 
 class AppState extends ChangeNotifier {
-
   final String _biometricKey = 'salkuadrat';
 
   AppScreenState _screenState = AppScreenState.LIST;
@@ -16,7 +15,7 @@ class AppState extends ChangeNotifier {
   AppScreenState get screenState => _screenState;
   String get currentMessage => _currentMessage;
   String get biometricKey => _biometricKey;
-  
+
   bool get isList => screenState == AppScreenState.LIST;
   bool get isWrite => screenState == AppScreenState.WRITE;
   bool get isRead => screenState == AppScreenState.READ;

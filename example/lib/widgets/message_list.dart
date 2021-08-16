@@ -14,7 +14,6 @@ class MessageList extends StatefulWidget {
 }
 
 class _MessageListState extends State<MessageList> {
-
   AppState get app => context.read<AppState>();
   MessagesState get messages => context.read<MessagesState>();
 

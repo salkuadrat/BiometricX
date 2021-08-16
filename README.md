@@ -9,8 +9,6 @@ Supports Fingerprint, FaceID and Iris.
 
 ## Starting
 
-Published soon at...
-
 ```
 $ flutter pub add biometricx
 ```

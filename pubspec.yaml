@@ -1,6 +1,6 @@
 name: biometricx
 description: The easy way to use biometric authentication in your Flutter app.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/salkuadrat/biometricx
 repository: https://github.com/salkuadrat/biometricx
 

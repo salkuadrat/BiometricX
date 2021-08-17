@@ -40,7 +40,7 @@ class MainActivity extends FlutterFragmentActivity {
 To check biometric type of your device.
 
 ```dart
-BiometricType type = await BiometricX.type();
+BiometricType type = await BiometricX.type;
 ```
 
 Here is the list of biometric types.
@@ -59,7 +59,7 @@ BiometricType.UNSUPPORTED
 To check if your device can use biometric authentication.
 
 ```dart
-bool isBiometricEnabled = await BiometricX.isEnabled();
+bool isBiometricEnabled = await BiometricX.isEnabled;
 ```
 
 To encrypt data using biometric authentication.
